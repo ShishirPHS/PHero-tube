@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PH Tube</title>
+    <!-- favicon link below -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
 
     <!-- daisyui and tailwind css link start -->
     <link
@@ -13,6 +15,47 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- daisyui and tailwind css link end -->
+
+    <!-- google font link start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-family: 'Inter', sans-serif; -->
+    <!-- google font link end -->
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div
+        class="flex items-center justify-between container mx-auto pt-12 pb-8 border-b-2 border-[#17171733]"
+      >
+        <!-- logo div -->
+        <div class="">
+          <img src="./images/Logo.png" alt="Logo.png" />
+        </div>
+        <div>
+          <button
+            class="text-[#252525] text-lg font-medium py-[10px] px-5 bg-[#25252533] rounded"
+          >
+            Sort by view
+          </button>
+        </div>
+        <div>
+          <button
+            class="text-white font-medium text-lg py-[10px] px-5 bg-[#FF1F3D] rounded"
+          >
+            Blog
+          </button>
+        </div>
+      </div>
+    </header>
+  </body>
 </html>
