@@ -36,10 +36,12 @@ const handleLoadCards = async (categoryId) => {
     <!-- single card -->
         <div>
           <!-- img div -->
-          <div>
+          <div
+            class="lg:h-[150px] overflow-hidden flex items-center justify-center rounded-lg"
+          >
             <img
-              class="rounded-lg w-full"
-              src="./images/test-img.png"
+              class="w-full h-full"
+              src="${card.thumbnail}"
               alt="test-img.png"
             />
           </div>
