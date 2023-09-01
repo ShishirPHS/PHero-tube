@@ -37,7 +37,7 @@ const handleLoadCards = async (categoryId) => {
         <div>
           <!-- img div -->
           <div
-            class="lg:h-[150px] overflow-hidden flex items-center justify-center rounded-lg"
+            class="h-[250px] sm:h-[300px] md:h-[250px] lg:h-[150px] xl:h-[180px] 2xl:h-[200px] overflow-hidden flex items-center justify-center rounded-lg"
           >
             <img
               class="w-full h-full"
@@ -49,19 +49,19 @@ const handleLoadCards = async (categoryId) => {
           <div class="grid gap-2 grid-cols-7 mt-3">
             <!-- profile -->
             <div class="col-span-1">
-              <img class="w-full" src="./images/Ellipse1.png" alt="" />
+              <img class="w-10 h-10 lg:w-[26px] lg:h-[26px] xl:h-[30px] xl:w-[30px] 2xl:h-[40px] 2xl:w-[40px] rounded-full" src="${card.authors[0]?.profile_picture}" alt="" />
             </div>
             <!-- infos -->
             <div class="col-span-6">
               <h3
                 class="text-[#171717] text-base lg:text-xs 2xl:text-lg font-bold"
               >
-                Building a Winning UX Strategy Using the Kano Model
+                ${card.title}
               </h3>
               <!-- author name and badge -->
               <div class="flex items-center">
                 <p
-                  class="py-[10px] lg:py-[5px] text-xs lg:text-[10px] 2xl:text-base"
+                  class="py-[5px] lg:py-[2px] text-xs lg:text-[10px] 2xl:text-base"
                 >
                   Awlad Hossain
                 </p>
