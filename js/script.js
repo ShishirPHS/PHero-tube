@@ -63,7 +63,7 @@ const handleLoadCards = async (categoryId) => {
                 <p
                   class="py-[5px] lg:py-[2px] text-xs lg:text-[10px] 2xl:text-base"
                 >
-                  Awlad Hossain
+                  ${card.authors[0]?.profile_name}
                 </p>
                 <span id="badge"
                   ><img

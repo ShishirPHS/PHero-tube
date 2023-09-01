@@ -36,7 +36,7 @@
     <header class="px-5 lg:px-0">
       <!-- navbar -->
       <div
-        class="flex items-center justify-between container mx-auto pt-6 sm:pt-12 pb-4 sm:pb-8 border-b-[1px] border-[#17171733]"
+        class="flex items-center justify-between container mx-auto pt-6 sm:pt-12 lg:pt-6 xl:pt-12 pb-4 sm:pb-8 border-b-[1px] border-[#17171733]"
       >
         <!-- logo div -->
         <div class="sm:flex-1">
@@ -84,9 +84,17 @@
         <!-- cards here -->
       </div>
       <!-- no content div -->
-      <div>
-        <img src="./images/no-content-icon.png" alt="no-content-icon.png" />
-        <h3>Oops!! Sorry, There is no content here</h3>
+      <div class="hidden">
+        <div
+          class="flex flex-col items-center justify-center mt-52 lg:mt-6 mb-80 lg:mb-40"
+        >
+          <img src="./images/no-content-icon.png" alt="no-content-icon.png" />
+          <h3
+            class="mt-8 lg:mt-4 xl:mt-8 text-[#171717] text-3xl font-bold max-w-[433px] text-center"
+          >
+            Oops!! Sorry, There is no content here
+          </h3>
+        </div>
       </div>
     </main>
 
