@@ -49,7 +49,9 @@ const handleLoadCards = async (categoryId) => {
           <div class="grid gap-2 grid-cols-7 mt-3">
             <!-- profile -->
             <div class="col-span-1">
-              <img class="w-10 h-10 lg:w-[26px] lg:h-[26px] xl:h-[30px] xl:w-[30px] 2xl:h-[40px] 2xl:w-[40px] rounded-full" src="${card.authors[0]?.profile_picture}" alt="" />
+              <img class="w-10 h-10 lg:w-[26px] lg:h-[26px] xl:h-[30px] xl:w-[30px] 2xl:h-[40px] 2xl:w-[40px] rounded-full" src="${
+                card.authors[0]?.profile_picture
+              }" alt="" />
             </div>
             <!-- infos -->
             <div class="col-span-6">
@@ -65,12 +67,13 @@ const handleLoadCards = async (categoryId) => {
                 >
                   ${card.authors[0]?.profile_name}
                 </p>
-                <span id="badge"
-                  ><img
-                    class="h-[15px] lg:h-3 xl:h-[15px] ml-2"
-                    src="./images/badge.png"
-                    alt="badge.png"
-                /></span>
+                ${
+                  card.authors[0]?.verified
+                    ? "<span id='badge'> \
+                <img class='h-[15px] lg:h-3 xl:h-[15px] ml-2' \
+                  src='./images/badge.png' alt='badge.png' /></span>"
+                    : ""
+                }
               </div>
               <!-- views -->
               <p class="text-[#171717b3] text-sm lg:text-[10px] 2xl:text-base">
