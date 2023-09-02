@@ -20,7 +20,7 @@ const handleCategories = async () => {
   });
 };
 
-const handleLoadCards = async (categoryId) => {
+const handleLoadCards = async (categoryId, sortByViews = false) => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
   );
@@ -33,7 +33,14 @@ const handleLoadCards = async (categoryId) => {
   const noContentDiv = document.getElementById("no-content");
 
   if (data.data && data.data.length > 0) {
-    data.data?.forEach((card) => {
+    // sort by views
+    if (sortByViews) {
+      data.data.sort((a, b) => b.others?.views - a.others?.views);
+    }
+
+    console.log(data.data);
+
+    data.data.forEach((card) => {
       // calculate posted time
       const postedTime = card.others?.posted_date;
       const hours = Math.floor(postedTime / 3600);
@@ -103,6 +110,10 @@ const handleLoadCards = async (categoryId) => {
   } else {
     noContentDiv.classList.remove("hidden");
   }
+};
+
+const sortByViews = () => {
+  handleLoadCards("1000", true);
 };
 
 handleCategories();
