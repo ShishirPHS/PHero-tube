@@ -34,6 +34,11 @@ const handleLoadCards = async (categoryId) => {
 
   if (data.data && data.data.length > 0) {
     data.data?.forEach((card) => {
+      // calculate posted time
+      const postedTime = card.others?.posted_date;
+      const hours = Math.floor(postedTime / 3600);
+      const minutes = Math.floor((postedTime % 3600) / 60);
+
       const singleCard = document.createElement("div");
       singleCard.innerHTML = `
       <!-- single card -->
@@ -48,15 +53,11 @@ const handleLoadCards = async (categoryId) => {
                 alt="test-img.png"
               />
               <!-- time div -->
-              ${
-                card.others?.posted_date
-                  ? '\
-              <div class="absolute right-3 bottom-3 p-[5px] bg-[#171717] text-white rounded">\
-              <p class="text-[10px]">3hrs 56 min ago</P>\
-              </div>\
-              '
-                  : ""
-              }
+              <div class="absolute right-3 bottom-3 p-[5px] bg-[#171717] text-white rounded ${
+                !card.others?.posted_date ? "hidden" : ""
+              }">
+                <p class="text-[10px] xl:text-xs 2xl:text-sm">${hours}hrs ${minutes} min ago</P>
+              </div>
             </div>
             <!-- author profile and others info -->
             <div class="grid gap-2 grid-cols-7 mt-3">
