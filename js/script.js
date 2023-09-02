@@ -35,10 +35,10 @@ const handleLoadCards = async (categoryId, sortByViews = false) => {
   if (data.data && data.data.length > 0) {
     // sort by views
     if (sortByViews) {
-      data.data.sort((a, b) => b.others?.views - a.others?.views);
+      data.data.sort(
+        (a, b) => b.others?.views.slice(0, -1) - a.others?.views.slice(0, -1)
+      );
     }
-
-    console.log(data.data);
 
     data.data.forEach((card) => {
       // calculate posted time
