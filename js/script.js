@@ -30,61 +30,79 @@ const handleLoadCards = async (categoryId) => {
 
   cardsContainer.innerHTML = "";
 
-  data.data?.forEach((card) => {
-    const singleCard = document.createElement("div");
-    singleCard.innerHTML = `
-    <!-- single card -->
-        <div>
-          <!-- img div -->
-          <div
-            class="h-[250px] sm:h-[300px] md:h-[250px] lg:h-[150px] xl:h-[180px] 2xl:h-[200px] overflow-hidden flex items-center justify-center rounded-lg"
-          >
-            <img
-              class="w-full h-full"
-              src="${card.thumbnail}"
-              alt="test-img.png"
-            />
-          </div>
-          <!-- author profile and others info -->
-          <div class="grid gap-2 grid-cols-7 mt-3">
-            <!-- profile -->
-            <div class="col-span-1">
-              <img class="w-10 h-10 lg:w-[26px] lg:h-[26px] xl:h-[30px] xl:w-[30px] 2xl:h-[40px] 2xl:w-[40px] rounded-full" src="${
-                card.authors[0]?.profile_picture
-              }" alt="" />
+  const noContentDiv = document.getElementById("no-content");
+
+  if (data.data && data.data.length > 0) {
+    data.data?.forEach((card) => {
+      const singleCard = document.createElement("div");
+      singleCard.innerHTML = `
+      <!-- single card -->
+          <div>
+            <!-- img div -->
+            <div
+              class="relative h-[250px] sm:h-[300px] md:h-[250px] lg:h-[150px] xl:h-[180px] 2xl:h-[200px] overflow-hidden flex items-center justify-center rounded-lg"
+            >
+              <img
+                class="w-full h-full"
+                src="${card.thumbnail}"
+                alt="test-img.png"
+              />
+              <!-- time div -->
+              ${
+                card.others?.posted_date
+                  ? '\
+              <div class="absolute right-3 bottom-3 p-[5px] bg-[#171717] text-white rounded">\
+              <p class="text-[10px]">3hrs 56 min ago</P>\
+              </div>\
+              '
+                  : ""
+              }
             </div>
-            <!-- infos -->
-            <div class="col-span-6">
-              <h3
-                class="text-[#171717] text-base lg:text-xs 2xl:text-lg font-bold"
-              >
-                ${card.title}
-              </h3>
-              <!-- author name and badge -->
-              <div class="flex items-center">
-                <p
-                  class="py-[5px] lg:py-[2px] text-xs lg:text-[10px] 2xl:text-base"
-                >
-                  ${card.authors[0]?.profile_name}
-                </p>
-                ${
-                  card.authors[0]?.verified
-                    ? "<span id='badge'> \
-                <img class='h-[15px] lg:h-3 xl:h-[15px] ml-2' \
-                  src='./images/badge.png' alt='badge.png' /></span>"
-                    : ""
-                }
+            <!-- author profile and others info -->
+            <div class="grid gap-2 grid-cols-7 mt-3">
+              <!-- profile -->
+              <div class="col-span-1">
+                <img class="w-10 h-10 lg:w-[26px] lg:h-[26px] xl:h-[30px] xl:w-[30px] 2xl:h-[40px] 2xl:w-[40px] rounded-full" src="${
+                  card.authors[0]?.profile_picture
+                }" alt="" />
               </div>
-              <!-- views -->
-              <p class="text-[#171717b3] text-sm lg:text-[10px] 2xl:text-base">
-                91K views
-              </p>
+              <!-- infos -->
+              <div class="col-span-6">
+                <h3
+                  class="text-[#171717] text-base lg:text-xs 2xl:text-lg font-bold"
+                >
+                  ${card.title}
+                </h3>
+                <!-- author name and badge -->
+                <div class="flex items-center">
+                  <p
+                    class="py-[5px] lg:py-[2px] text-xs lg:text-[10px] 2xl:text-base"
+                  >
+                    ${card.authors[0]?.profile_name}
+                  </p>
+                  ${
+                    card.authors[0]?.verified
+                      ? "<span id='badge'> \
+                  <img class='h-[15px] lg:h-3 xl:h-[15px] ml-2' \
+                    src='./images/badge.png' alt='badge.png' /></span>"
+                      : ""
+                  }
+                </div>
+                <!-- views -->
+                <p class="text-[#171717b3] text-sm lg:text-[10px] 2xl:text-base">
+                  91K views
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-    `;
-    cardsContainer.appendChild(singleCard);
-  });
+      `;
+      cardsContainer.appendChild(singleCard);
+    });
+
+    noContentDiv.classList.add("hidden");
+  } else {
+    noContentDiv.classList.remove("hidden");
+  }
 };
 
 handleCategories();
