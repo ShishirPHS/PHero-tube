@@ -81,13 +81,12 @@ const handleLoadCards = async (categoryId) => {
                   >
                     ${card.authors[0]?.profile_name}
                   </p>
-                  ${
-                    card.authors[0]?.verified
-                      ? "<span id='badge'> \
-                  <img class='h-[15px] lg:h-3 xl:h-[15px] ml-2' \
-                    src='./images/badge.png' alt='badge.png' /></span>"
-                      : ""
-                  }
+                  <span id="badge" class="${
+                    !card.authors[0]?.verified ? "hidden" : ""
+                  }">
+                    <img class="h-[15px] lg:h-3 xl:h-[15px] ml-2" 
+                    src="./images/badge.png" alt="badge.png" />
+                  </span>
                 </div>
                 <!-- views -->
                 <p class="text-[#171717b3] text-sm lg:text-[10px] 2xl:text-base">
