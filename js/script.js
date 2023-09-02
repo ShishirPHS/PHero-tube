@@ -20,7 +20,11 @@ const handleCategories = async () => {
   });
 };
 
+let selectedCategoryId = null;
+
 const handleLoadCards = async (categoryId, sortByViews = false) => {
+  selectedCategoryId = categoryId;
+
   const res = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
   );
@@ -113,7 +117,7 @@ const handleLoadCards = async (categoryId, sortByViews = false) => {
 };
 
 const sortByViews = () => {
-  handleLoadCards("1000", true);
+  handleLoadCards(selectedCategoryId, true);
 };
 
 handleCategories();
