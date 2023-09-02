@@ -90,7 +90,7 @@ const handleLoadCards = async (categoryId) => {
                 </div>
                 <!-- views -->
                 <p class="text-[#171717b3] text-sm lg:text-[10px] 2xl:text-base">
-                  91K views
+                  ${card.others?.views} views
                 </p>
               </div>
             </div>
